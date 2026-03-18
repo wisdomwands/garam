@@ -1,0 +1,311 @@
+:root {
+    --primary-gold: #d4af37;
+    --deep-gold: #b8860b;
+    --bg-dark: #0a0a0c;
+    --card-bg: rgba(20, 20, 25, 0.7);
+    --text-main: #e0e0e0;
+    --text-dim: #a0a0a0;
+    --accent: #ffae00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Outfit', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.app-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(10,10,12,0.95) 100%);
+    z-index: 1;
+}
+
+header, main, footer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-top: 40px;
+}
+
+h1 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    background: linear-gradient(to bottom, #fff, #d4af37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.player-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 24px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.now-playing {
+    text-align: center;
+    margin-bottom: 30px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.speaker-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--primary-gold);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.text-display-scroll {
+    width: 100%;
+    overflow-y: auto;
+    padding: 0 10px;
+}
+
+#current-text {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #fff;
+    font-weight: 300;
+}
+
+.progress-container {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, var(--deep-gold), var(--primary-gold));
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.time-info {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.main-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    fill: var(--text-dim);
+    transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+    fill: #fff;
+    transform: scale(1.1);
+}
+
+.play-btn {
+    background: var(--primary-gold);
+    border: none;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.play-btn svg {
+    width: 35px;
+    height: 35px;
+    fill: #000;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+    background: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+.settings {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.85rem;
+}
+
+.setting-item label {
+    color: var(--text-dim);
+    min-width: 50px;
+}
+
+select {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    flex-grow: 1;
+    outline: none;
+    cursor: pointer;
+}
+
+select option {
+    background: var(--bg-dark);
+}
+
+input[type=range] {
+    flex-grow: 1;
+    cursor: pointer;
+    accent-color: var(--primary-gold);
+}
+
+.playlist-container {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.playlist-container h3 {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 15px;
+    padding-left: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.playlist {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.playlist::-webkit-scrollbar {
+    width: 4px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+}
+
+.playlist-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.playlist-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.playlist-item.active {
+    background: rgba(212, 175, 55, 0.1);
+    border-left-color: var(--primary-gold);
+}
+
+.playlist-item .p-speaker {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--primary-gold);
+}
+
+.playlist-item .p-text {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+}

@@ -1,0 +1,7 @@
+[PERMIA BLOG HISTORY SUMMARY]
+- Initial goal: Automated posting for efficiency.
+- Tech stack: Python, Playwright, Tistory.
+- Challenges: Tistory dynamic rendering, session security.
+- Pivot: Quality over quantity. Transitioning to HUI and Media-rich (Video/Shorts) strategy.
+- Team Lead Identity: Maru(Plan), Ara(Design), Hanul(System), Garam(Content), Gaon(Audit), Baram(Marketing), Haena(Video), Auto(Solution).
+- Genesis: Wonju's HUI Philosophy.

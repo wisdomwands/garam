@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생명의 빛 회로도 리더</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <div class="background-overlay"></div>
+        
+        <header>
+            <h1>생명의 빛 회로도</h1>
+            <p class="subtitle">우주적 설계와 의식의 재구조화</p>
+        </header>
+
+        <main id="reader-app">
+            <div class="player-card">
+                <div class="now-playing">
+                    <span class="speaker-tag" id="current-speaker">준비 중...</span>
+                    <div class="text-display-scroll" id="current-text-container">
+                        <p id="current-text">리더기를 시작하려면 재생 버튼을 누르세요.</p>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <div class="time-info">
+                        <span id="current-index">0</span> / <span id="total-count">0</span>
+                    </div>
+                    
+                    <div class="main-buttons">
+                        <button id="prev-btn" class="icon-btn" title="이전">
+                            <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                        </button>
+                        <button id="play-pause-btn" class="play-btn" title="재생/일시정지">
+                            <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            <svg id="pause-icon" class="hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                        <button id="next-btn" class="icon-btn" title="다음">
+                            <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="settings">
+                        <div class="setting-item">
+                            <label>목소리</label>
+                            <select id="voice-select">
+                                <option value="">목소리 로딩 중...</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>속도</label>
+                            <input type="range" id="speed-range" min="0.5" max="1.5" step="0.1" value="0.8">
+                            <span id="speed-val">0.8x</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-container">
+                <h3>대화 목록</h3>
+                <div id="playlist" class="playlist">
+                    <!-- Playlist items will be injected here -->
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 가람 & 원주(原柱). 모든 권리 보유.</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
